@@ -1,0 +1,21 @@
+{
+  "namespace": "com.example.kafkademo.avro",  // 实体类存放路径
+  "type": "record",
+  "name": "User",     // 实体类文件名
+  "fields": [       // 实体类属性
+    {
+      "name": "id",  // 属性名
+      "type": ["null", "string"], // 可选字段
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int",
+      "default": 18
+    }
+  ]
+}

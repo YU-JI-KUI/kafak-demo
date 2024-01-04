@@ -1,7 +1,10 @@
+import com.github.davidmc24.gradle.plugin.avro.GenerateAvroJavaTask
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.1'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'com.github.davidmc24.gradle.plugin.avro' version '1.2.0'
 }
 
 group = 'com.example'
@@ -12,6 +15,7 @@ java {
 }
 
 repositories {
+	maven { url 'https://packages.confluent.io/maven/' }
 	maven { url 'https://maven.aliyun.com/repository/public' }
 	mavenCentral()
 }
@@ -19,6 +23,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'org.apache.avro:avro:1.10.2'
+
+	implementation 'io.confluent:kafka-avro-serializer:7.1.5'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
@@ -26,4 +33,13 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+avro {
+	createSetters = false // 如果不需要生成 setter 方法，可设置为 false
+	fieldVisibility = 'PRIVATE' // 字段可见性
+}
+
+tasks.withType(GenerateAvroJavaTask) {
+	enabled = false
 }
