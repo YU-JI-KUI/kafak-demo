@@ -40,6 +40,6 @@ avro {
 	fieldVisibility = 'PRIVATE' // 字段可见性
 }
 
-tasks.withType(GenerateAvroJavaTask) {
+tasks.withType(GenerateAvroJavaTask).configureEach {
 	enabled = false
 }
