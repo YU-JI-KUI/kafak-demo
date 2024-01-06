@@ -12,8 +12,8 @@ import org.apache.avro.specific.SpecificData;
 
 @org.apache.avro.specific.AvroGenerated
 public class User extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3322028949539970665L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.example.kafkademo.avro\",\"fields\":[{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"age\",\"type\":\"int\",\"default\":18}]}");
+  private static final long serialVersionUID = 8503679316298751919L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.example.kafkademo.avro\",\"fields\":[{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"age\",\"type\":\"int\",\"default\":18},{\"name\":\"remark\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"DefaultRemark\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,6 +72,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    private String id;
    private String name;
    private int age;
+   private String remark;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -85,11 +86,13 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * @param id The new value for id
    * @param name The new value for name
    * @param age The new value for age
+   * @param remark The new value for remark
    */
-  public User(String id, String name, Integer age) {
+  public User(String id, String name, Integer age, String remark) {
     this.id = id;
     this.name = name;
     this.age = age;
+    this.remark = remark;
   }
 
   public SpecificData getSpecificData() { return MODEL$; }
@@ -100,6 +103,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     case 0: return id;
     case 1: return name;
     case 2: return age;
+    case 3: return remark;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -111,6 +115,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     case 0: id = value$ != null ? value$.toString() : null; break;
     case 1: name = value$ != null ? value$.toString() : null; break;
     case 2: age = (Integer)value$; break;
+    case 3: remark = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -141,6 +146,16 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    */
   public int getAge() {
     return age;
+  }
+
+
+
+  /**
+   * Gets the value of the 'remark' field.
+   * @return The value of the 'remark' field.
+   */
+  public String getRemark() {
+    return remark;
   }
 
 
@@ -189,6 +204,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     private String id;
     private String name;
     private int age;
+    private String remark;
 
     /** Creates a new Builder */
     private Builder() {
@@ -213,6 +229,10 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
         this.age = data().deepCopy(fields()[2].schema(), other.age);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
+      if (isValidValue(fields()[3], other.remark)) {
+        this.remark = data().deepCopy(fields()[3].schema(), other.remark);
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
+      }
     }
 
     /**
@@ -232,6 +252,10 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       if (isValidValue(fields()[2], other.age)) {
         this.age = data().deepCopy(fields()[2].schema(), other.age);
         fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.remark)) {
+        this.remark = data().deepCopy(fields()[3].schema(), other.remark);
+        fieldSetFlags()[3] = true;
       }
     }
 
@@ -354,6 +378,46 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       return this;
     }
 
+    /**
+      * Gets the value of the 'remark' field.
+      * @return The value.
+      */
+    public String getRemark() {
+      return remark;
+    }
+
+
+    /**
+      * Sets the value of the 'remark' field.
+      * @param value The value of 'remark'.
+      * @return This builder.
+      */
+    public Builder setRemark(String value) {
+      validate(fields()[3], value);
+      this.remark = value;
+      fieldSetFlags()[3] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'remark' field has been set.
+      * @return True if the 'remark' field has been set, false otherwise.
+      */
+    public boolean hasRemark() {
+      return fieldSetFlags()[3];
+    }
+
+
+    /**
+      * Clears the value of the 'remark' field.
+      * @return This builder.
+      */
+    public Builder clearRemark() {
+      remark = null;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public User build() {
@@ -362,6 +426,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
         record.id = fieldSetFlags()[0] ? this.id : (String) defaultValue(fields()[0]);
         record.name = fieldSetFlags()[1] ? this.name : (String) defaultValue(fields()[1]);
         record.age = fieldSetFlags()[2] ? this.age : (Integer) defaultValue(fields()[2]);
+        record.remark = fieldSetFlags()[3] ? this.remark : (String) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -406,6 +471,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 
     out.writeInt(this.age);
 
+    out.writeString(this.remark);
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -424,8 +491,10 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 
       this.age = in.readInt();
 
+      this.remark = in.readString();
+
     } else {
-      for (int i = 0; i < 3; i++) {
+      for (int i = 0; i < 4; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           if (in.readIndex() != 1) {
@@ -442,6 +511,10 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 
         case 2:
           this.age = in.readInt();
+          break;
+
+        case 3:
+          this.remark = in.readString();
           break;
 
         default:

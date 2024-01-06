@@ -16,6 +16,11 @@
       "name": "age",
       "type": "int",
       "default": 18
+    },
+    {
+      "name": "remark", // 添加这个字段为了测试向后兼容，必须要给一个默认值。
+      "type": "string",
+      "default": "DefaultRemark" // 或者任何合适的默认值
     }
   ]
 }

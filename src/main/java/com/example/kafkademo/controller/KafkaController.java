@@ -22,7 +22,7 @@ public class KafkaController {
 
     @GetMapping("/sendUser")
     public String sendUser(@RequestParam("name") String name) {
-        messageProducer.sendUserMessage(User.newBuilder().setName(name).build());
+        messageProducer.sendUserMessage(User.newBuilder().setName(name).setRemark("remark").build());
         return "Message sent: " + name;
     }
 
