@@ -1,7 +1,6 @@
 package com.example.kafkademo.controller;
 
 import com.example.kafkademo.avro.User;
-import com.example.kafkademo.constants.KafkaConstants;
 import com.example.kafkademo.producer.MessageProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
