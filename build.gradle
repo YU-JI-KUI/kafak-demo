@@ -24,6 +24,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
 	implementation 'org.apache.avro:avro:1.10.2'
 
 	implementation 'io.confluent:kafka-avro-serializer:7.1.5'

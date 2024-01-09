@@ -19,6 +19,7 @@
 - Avro Schema
 - Gradle
 - Kafka SASL/SCRAM
+- Mongo DB
 
 SASL/SCRAM 的全称是 "Simple Authentication and Security Layer/Salted Challenge Response Authentication Mechanism"。这是一种基于挑战响应机制的认证方法，用于提供更安全的认证方式。
 
@@ -38,3 +39,4 @@ SCRAM (Salted Challenge Response Authentication Mechanism): 是一种 SASL 认�
 - [Windows 本地搭建 Kafka](https://www.cnblogs.com/asd14828/p/13529487.html)
 - [Spring Boot & Kafka 基础集成，Message 是 String](https://medium.com/@abhishekranjandev/a-comprehensive-guide-to-integrating-kafka-in-a-spring-boot-application-a4b912aee62e)
 - [Linux 上安装 Kafka 环境](https://r08kdwv0y3.feishu.cn/docx/GPfRdnbfooazKPxTTEecoZs3nCg?from=from_copylink)
+- [Linux 上安装 Mongo DB](https://r08kdwv0y3.feishu.cn/docx/WC9yd4mcTopWGpxtkTxcWbfanqe)
