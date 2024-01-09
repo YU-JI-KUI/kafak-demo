@@ -1,6 +1,6 @@
 # Kafka-Demo
 
-学习 Kafka 的记录，开箱即用的代码和配置。
+学习 Kafka 的记录，开箱即用的代码和配置。[Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 
 ## Case1
 向 Topic 中发送 String 的 Message，并且 producer 和 consumer 的配置都是通过代码实现。
@@ -20,6 +20,7 @@
 - Gradle
 - Kafka SASL/SCRAM
 - Mongo DB
+- Spring Doc OpenAPI
 
 SASL/SCRAM 的全称是 "Simple Authentication and Security Layer/Salted Challenge Response Authentication Mechanism"。这是一种基于挑战响应机制的认证方法，用于提供更安全的认证方式。
 
