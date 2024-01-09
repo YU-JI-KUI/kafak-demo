@@ -1,5 +1,6 @@
 package com.example.kafkademo.mongo.model;
 
+import com.example.kafkademo.avro.User;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,4 +13,7 @@ public class MongoUser {
     private String name;
     private Integer age;
     private String remake;
+
+    private UserAddress address;
+    private UserDto user;
 }

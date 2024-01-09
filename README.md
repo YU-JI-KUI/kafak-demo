@@ -19,7 +19,7 @@
 - Avro Schema
 - Gradle
 - Kafka SASL/SCRAM
-- Mongo DB
+- MongoDB
 - Spring Doc OpenAPI
 
 SASL/SCRAM 的全称是 "Simple Authentication and Security Layer/Salted Challenge Response Authentication Mechanism"。这是一种基于挑战响应机制的认证方法，用于提供更安全的认证方式。
